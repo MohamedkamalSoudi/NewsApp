@@ -6,12 +6,12 @@ import 'package:weather_app/pages/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() => runApp( 
-  DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => WeatherApp(), // Wrap your app
-  ),
-);
+void main() => runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => WeatherApp(), // Wrap your app
+      ),
+    );
 
 class WeatherApp extends StatelessWidget {
   @override
@@ -20,7 +20,7 @@ class WeatherApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      child:  MaterialApp(
+      child: MaterialApp(
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
@@ -30,5 +30,3 @@ class WeatherApp extends StatelessWidget {
     );
   }
 }
-
-

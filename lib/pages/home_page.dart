@@ -30,7 +30,17 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
-      body: NewsListView(),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(child: CateoriesListView()),
+            SliverToBoxAdapter(child: SizedBox(height: 32,)),
+            SliverToBoxAdapter(child: NewsListView()),
+          ],
+        ),
+      ),
     );
   }
 }

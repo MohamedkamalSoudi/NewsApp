@@ -8,17 +8,15 @@ class CateoriesListView extends StatelessWidget {
   }) : super(key: key);
   final List<CategoryModel> categories = const [
     CategoryModel(
-        categoryimage: "assets/images/clear.png", categoryname: "clear"),
+        categoryimage: "assets/images/1.jpg", categoryname: "clear"),
     CategoryModel(
-        categoryimage: "assets/images/birthday_card.png",
-        categoryname: "birthday"),
+        categoryimage: "assets/images/2.jpg",categoryname: "birthday"),
     CategoryModel(
-        categoryimage: "assets/images/cloudy.png", categoryname: "cloudy"),
+        categoryimage: "assets/images/3.jpg", categoryname: "cloudy"),
     CategoryModel(
-        categoryimage: "assets/images/rainy.png", categoryname: "rainy"),
+        categoryimage: "assets/images/4.jpg", categoryname: "rainy"),
     CategoryModel(
-        categoryimage: "assets/images/thunderstorm.png",
-        categoryname: "thunderstorm"),
+        categoryimage: "assets/images/3089.jpg",categoryname: "thunderstorm"),
   ];
   @override
   Widget build(BuildContext context) {
