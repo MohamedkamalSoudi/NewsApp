@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/widgets/categories_list%20_view.dart';
+import 'package:weather_app/widgets/category_card.dart';
+import 'package:weather_app/widgets/news_list_view.dart';
+import 'package:weather_app/widgets/news_tile.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -26,18 +30,9 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
-      body: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-          image: const DecorationImage(
-              image: AssetImage("assets/images/birthday_card.png"),
-              ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: const Center(child: Text("Sports")),
-        
-      ),
+      body: NewsListView(),
     );
   }
 }
+
+

@@ -1,0 +1,22 @@
+
+import 'package:flutter/material.dart';
+import 'package:weather_app/widgets/news_tile.dart';
+
+class NewsListView extends StatelessWidget {
+  const NewsListView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return const Padding(
+          padding: EdgeInsets.only(bottom: 22),
+          child: NewsTile(),
+        );
+      },
+    );
+  }
+}
