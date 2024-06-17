@@ -2,9 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/categories_list%20_view.dart';
-import 'package:weather_app/widgets/category_card.dart';
 import 'package:weather_app/widgets/news_list_view.dart';
-import 'package:weather_app/widgets/news_tile.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
