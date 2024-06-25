@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/category_card.dart';
-import 'package:weather_app/widgets/category_model.dart';
+import 'package:weather_app/models/category_model.dart';
+import 'category_card.dart';
 
 class CateoriesListView extends StatelessWidget {
   const CateoriesListView({
@@ -8,28 +8,28 @@ class CateoriesListView extends StatelessWidget {
   }) : super(key: key);
   final List<CategoryModel> categories = const [
     CategoryModel(
-        categoryimage: "assets/images/1.jpg", categoryname: "clear"),
+        categoryimage: "assets/images/1.jpg", categoryName: "business"),
     CategoryModel(
-        categoryimage: "assets/images/2.jpg",categoryname: "birthday"),
+        categoryimage: "assets/images/2.jpg",categoryName: "sports"),
     CategoryModel(
-        categoryimage: "assets/images/3.jpg", categoryname: "cloudy"),
+        categoryimage: "assets/images/3.jpg", categoryName: "sources"),
     CategoryModel(
-        categoryimage: "assets/images/4.jpg", categoryname: "rainy"),
+        categoryimage: "assets/images/4.jpg", categoryName: "technology"),
     CategoryModel(
-        categoryimage: "assets/images/3089.jpg",categoryname: "thunderstorm"),
+        categoryimage: "assets/images/3089.jpg",categoryName: "entertainment"),
   ];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 85,
       child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (context, index) {
-          return CategoryCard(
-            category: categories[index]);
-        },
-      ),
+          scrollDirection: Axis.horizontal,
+          itemCount: categories.length,
+          itemBuilder: (context, index) {
+            return CategoryCard(
+              category: categories[index],
+            );
+          }),
     );
   }
 }

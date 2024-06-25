@@ -1,31 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/pages/home_page.dart';
+import 'package:weather_app/views/home_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:dio/dio.dart';
+import 'package:device_preview/device_preview.dart';
 
-void main() {
-  getGeneralNews();
-  runApp(WeatherApp());
-}
+void main() => runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => NewsApp(), // Wrap your app
+      ),
+    );
 
-final dio = Dio();
-
-void getGeneralNews() async{
-      final response = await dio.get(
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=2614f0b58fa24d9284026d981f75d9e3');
-  print(response);
-
-  }
-  void getSportsNeews() async{
-      final response = await dio.get(
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=2614f0b58fa24d9284026d981f75d9e3');
-  print(response);
-
-  }
-
-class WeatherApp extends StatelessWidget {
+class NewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -33,6 +21,9 @@ class WeatherApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         home: HomeView(),
       ),

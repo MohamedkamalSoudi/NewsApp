@@ -1,20 +1,31 @@
 import 'package:dio/dio.dart';
+import 'package:weather_app/models/article_model.dart';
 
-class NewsService{
+class NewsService {
   final Dio dio;
 
   NewsService(this.dio);
 
-  void getGeneralNews() async{
-      final response = await dio.get(
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=2614f0b58fa24d9284026d981f75d9e3');
-  print(response);
+  Future<List<ArticleModel>> getTopHeadlines({required String category}) async {
+    try {
+      var response = await dio.get(
+          'https://newsapi.org/v2/top-headlines?country=us&apiKey=3c88955c487e4d9db668f011dd85e737&category=$category');
 
-  }
-  void getSportsNeews() async{
-      final response = await dio.get(
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=2614f0b58fa24d9284026d981f75d9e3');
-  print(response);
+      Map<String, dynamic> jsonData = response.data;
+      List<dynamic> articles = jsonData['articles'];
+      List<ArticleModel> articlesList = [];
 
+      for (var article in articles) {
+        ArticleModel articleModel = ArticleModel.fromJson(article);
+        articlesList.add(articleModel);
+      }
+    print(articlesList[0].title);
+
+      return articlesList;
+    } catch (e) {
+      return [];
+    }
   }
+
+  getNews() {}
 }

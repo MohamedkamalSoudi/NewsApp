@@ -1,32 +1,46 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/category_model.dart';
+import 'package:weather_app/models/category_model.dart';
+import 'package:weather_app/views/category_view.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({Key? key,required this.category}) : super(key: key);
   final CategoryModel category;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 16),
-      child: Container(
-        width: 200,
-        height: 100,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(category.categoryimage),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return CategoryView(
+                category: category.categoryName,
+              );
+            },
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child:  Center(
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 16),
+        child: Container(
+          height: 85,
+          width: 160,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+                image: AssetImage(category.categoryimage), fit: BoxFit.fill),
+          ),
+          child: Center(
             child: Text(
-          category.categoryname,
-          style: TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-        )),
+              category.categoryName,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       ),
     );
   }

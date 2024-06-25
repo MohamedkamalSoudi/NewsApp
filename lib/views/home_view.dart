@@ -1,9 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/categories_list%20_view.dart';
-import 'package:weather_app/widgets/news_list_view.dart';
-
+import 'package:weather_app/widgets/news_list_view_builder.dart';
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -11,8 +8,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         elevation: 0,
-        title: Row(
+        backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+        title: const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
@@ -25,22 +24,25 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
       ),
-      body: const Padding(
+      body:const  Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
+
         child: CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(child: CateoriesListView()),
-            SliverToBoxAdapter(child: SizedBox(height: 32,)),
-            SliverToBoxAdapter(child: NewsListView()),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 32,
+              ),
+            ),
+            NewsListViewBuilder(
+              category: 'general',
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
