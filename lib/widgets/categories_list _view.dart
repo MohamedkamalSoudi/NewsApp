@@ -21,7 +21,7 @@ class CateoriesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 85,
+      height: 110,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,

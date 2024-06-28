@@ -34,15 +34,15 @@ class CategoryCard extends StatelessWidget {
                     image: AssetImage(category.categoryimage), fit: BoxFit.fill),
               ),
               child: Center(
-                child: Text(
-                  category.categoryName,
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                ),
+                child: Text(""),
               ),
             ),
+            Text(category.categoryName,
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      //fontWeight: FontWeight.bold
+                      ),),
           ],
         ),
       ),
